@@ -10,7 +10,7 @@
 <body>
 <div class="header">
   <div class="botheader">
-    <p id="name">Welcome, Name</p>
+    <p id="name">Welcome, ${name}</p>
     <p id="balance">Balance: $0.00</p>
   </div>
   <div class="navbar">

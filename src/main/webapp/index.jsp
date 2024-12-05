@@ -17,7 +17,7 @@
         Bakery Shop
     </span>
     <p>Please enter your name below to enter the store.</p>
-    <form action="/hello-servlet">
+    <form method = "POST" action="/hello-servlet">
         <div class="display">
             <input type="text" id="name" name="name" class="type" placeholder="Your Name" required>
             <button type="submit" class="submit">Submit</button>
