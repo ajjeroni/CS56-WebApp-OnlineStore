@@ -21,11 +21,7 @@ document.getElementById('root').innerHTML = product.map((item, i) => {
             <div class="bottom">
                 <p>${title}</p>
                 <h2>$${price.toFixed(2)}</h2>
-                <form method = "POST" action="/product-servlet">
-                    <input type="hidden" name="title" value="${title}">
-                    <input type="hidden" name="price" value="${price.toFixed(2)}">
-                    <button type="submit">Add to Cart</button>
-                </form>
+                <button onclick="addToCart(${i})">Add to Cart</button>
             </div>
         </div>
     `;
@@ -33,39 +29,38 @@ document.getElementById('root').innerHTML = product.map((item, i) => {
 
 function addToCart(index) {
     cart.push(product[index]);
-    displayCart();
 }
+//
+// function removeItem(index) {
+//     cart.splice(index, 1);
+//     displayCart();
+// }
 
-function removeItem(index) {
-    cart.splice(index, 1);
-    displayCart();
-}
-
-function displayCart() {
-    let total = 0;
-    document.getElementById("count").textContent = cart.length;
-
-    if (cart.length === 0) {
-        document.getElementById('cartItem').innerHTML = "Your cart is empty";
-        document.getElementById("total").textContent = "$0.00";
-    } else {
-        document.getElementById('cartItem').innerHTML = cart.map((item, index) => {
-            total += item.price;
-            return `
-                <div class="cart-item">
-                    <div class="row-img">
-                        <img class="rowimg" src="${item.image}" alt="${item.title}">
-                    </div>
-                    <p>${item.title}</p>
-                    <h2>$${item.price.toFixed(2)}</h2>
-                    <span class="material-symbols-outlined" onclick="removeItem(${index})">delete</span>
-                </div>
-            `;
-        }).join('');
-        document.getElementById("total").textContent = `$${total.toFixed(2)}`;
-        localStorage.setItem('cartTotal', total.toFixed(2));
-    }
-}
+// function displayCart() {
+//     let total = 0;
+//     document.getElementById("count").textContent = cart.length;
+//
+//     if (cart.length === 0) {
+//         document.getElementById('cartItem').innerHTML = "Your cart is empty";
+//         document.getElementById("total").textContent = "$0.00";
+//     } else {
+//         document.getElementById('cartItem').innerHTML = cart.map((item, index) => {
+//             total += item.price;
+//             return `
+//                 <div class="cart-item">
+//                     <div class="row-img">
+//                         <img class="rowimg" src="${item.image}" alt="${item.title}">
+//                     </div>
+//                     <p>${item.title}</p>
+//                     <h2>$${item.price.toFixed(2)}</h2>
+//                     <span class="material-symbols-outlined" onclick="removeItem(${index})">delete</span>
+//                 </div>
+//             `;
+//         }).join('');
+//         document.getElementById("total").textContent = `$${total.toFixed(2)}`;
+//         localStorage.setItem('cartTotal', total.toFixed(2));
+//     }
+// }
 
 document.getElementById('checkoutButton').addEventListener('click', () => {
     const cartTotal = parseFloat(localStorage.getItem('cartTotal')) || 0;

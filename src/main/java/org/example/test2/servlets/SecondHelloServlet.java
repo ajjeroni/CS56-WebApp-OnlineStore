@@ -15,10 +15,13 @@ public class SecondHelloServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         getServletContext().getAttribute("name");
-        getServletContext().getAttribute("balance");
+        Double newBalance = (Double) getServletContext().getAttribute("newBalance");
+        Double oldBalance = (Double) getServletContext().getAttribute("balance");
+        if(newBalance == null) {
+            request.setAttribute("balance", oldBalance);
+        }else{
+            request.setAttribute("balance", newBalance);
+        }
         getServletContext().getRequestDispatcher("/shop.jsp").forward(request, response);
-
     }
-
-
 }

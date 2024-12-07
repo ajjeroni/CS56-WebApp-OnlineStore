@@ -21,8 +21,12 @@ public class productServlet extends HttpServlet {
         System.out.println("Product name " + product.getName() +
         " was created. Price: " + product.getPrice());
 
+
         cart.addItem(product);
         System.out.println("There are " + cart.showCart().size() + " items");
+
+        int count = cart.showCart().size();
+        getServletContext().setAttribute("count", count);
 
         Double cartPrice = cart.totalSum();
         getServletContext().setAttribute("cartPrice", cartPrice);

@@ -45,6 +45,17 @@
     </section>
 </div>
 
-<script src="checkout.js"></script>
+<script>
+    document.getElementById('checkoutForm').addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        if ( ${balance} < ${cartPrice} )  {
+            alert("Not enough money.");
+            return;
+        }
+
+        alert(`Thank you for your order! Remaining balance: $${newBalance} `);
+    });
+</script>
 </body>
 </html>

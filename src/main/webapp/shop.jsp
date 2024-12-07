@@ -17,7 +17,6 @@
   <div class="navbar">
     <p>The Bake Shop</p>
     <ul>
-      <li><a href="cart.html">Store</a></li>
       <li><a href="HTML/aboutPage.html">About</a></li>
     </ul>
   </div>
@@ -35,7 +34,7 @@
                     </span><p>Play!</p></div>
     <div class="cart"><span class="material-symbols-outlined">
                     shopping_cart</span>
-      <p id="count">0</p>
+      <p id="count">${count}</p>
     </div>
   </div>
 </div>
@@ -52,31 +51,11 @@
   </div>
 </div>
 
-<script>
-  const checkoutButton = document.getElementById('checkoutButton');
-  const balanceElement = document.getElementById('balance');
-  <%--const balance = parseFloat(localStorage.getItem('balance')) || 0;--%>
-  <%--balanceElement.textContent=`Balance: $${balance.toFixed(2)}`;--%>
-
-  const cartTotal = parseFloat(localStorage.getItem('cartTotal')) || 0;
-  document.getElementById('total').textContent=`$${cartTotal.toFixed(2)}`;
-
-  checkoutButton.addEventListener('click', () => {
-    <%--if (${balance} < cartTotal) {--%>
-    <%--  alert('Not enough money.');--%>
-    <%--} else {--%>
-    <%--  const newBalance = balance - cartTotal;--%>
-    <%--  localStorage.setItem('balance', newBalance.toFixed(2));--%>
-
-      window.location.href='checkout.html';
-    })
-</script>
-
 <div class="container">
   <div id="root"></div>
   <div class="sidebar">
     <div class="head"><p>My Cart</p></div>
-    <div id="cartItem">Your cart is empty</div>
+
     <div class="foot">
       <h3>Total</h3>
       <h2 id="total" >$${cartPrice}</h2>
