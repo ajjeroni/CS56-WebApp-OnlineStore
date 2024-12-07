@@ -82,9 +82,9 @@
       <h2 id="total" >$${cartPrice}</h2>
     </div>
     <div class="checkout">
-      <a href="HTML/checkOut.html">
-        <button id="checkoutButton">Checkout</button>
-      </a>
+      <form action="/check-out-servlet" method="GET">
+        <button type="submit" id="checkoutButton">Checkout</button>
+      </form>
     </div>
   </div>
 </div>

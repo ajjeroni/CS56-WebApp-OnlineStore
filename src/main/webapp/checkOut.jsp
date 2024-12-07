@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,7 +24,7 @@
         <div id="cart-summary"></div>
         <div class="total">
             <h3>Total:</h3>
-            <p id="total-price">${totalPrice}</p>
+            <p id="total-price">${cartPrice}</p>
         </div>
     </section>
 
