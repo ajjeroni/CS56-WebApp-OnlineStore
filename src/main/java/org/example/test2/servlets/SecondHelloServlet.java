@@ -1,4 +1,6 @@
 package org.example.test2.servlets;
+import org.example.test2.model.Customer;
+import org.example.test2.servlets.HelloServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,13 +14,10 @@ import java.io.PrintWriter;
 public class SecondHelloServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>second servlet in use</h1>");
-        out.println("</body></html>");
+        getServletContext().getAttribute("name");
+        getServletContext().getRequestDispatcher("/shop.jsp").forward(request, response);
+
     }
-    public void destroy(){
-    }
+
 
 }
