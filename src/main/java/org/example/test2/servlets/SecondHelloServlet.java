@@ -15,6 +15,7 @@ public class SecondHelloServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         getServletContext().getAttribute("name");
+        getServletContext().getAttribute("balance");
         getServletContext().getRequestDispatcher("/shop.jsp").forward(request, response);
 
     }

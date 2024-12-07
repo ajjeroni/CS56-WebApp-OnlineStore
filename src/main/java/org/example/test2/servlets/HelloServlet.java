@@ -1,6 +1,7 @@
 package org.example.test2.servlets;
 
 import org.example.test2.model.Customer;
+import org.example.test2.model.ShoppingCart;
 
 import java.io.*;
 import javax.servlet.ServletException;
@@ -9,12 +10,20 @@ import javax.servlet.annotation.*;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
-    public Customer customer;
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        ShoppingCart cart = new ShoppingCart();
+        System.out.println("There are " + cart.showCart().size() + " items");
+        System.out.println("Total price of cart: " + cart.totalSum());
         String name = request.getParameter("name");
         Customer customer = new Customer(name);
+        double balance = customer.getBalance();
+        session.setAttribute("cart", cart);
+        getServletContext().setAttribute("balance", balance);
         getServletContext().setAttribute("name", name);
         request.setAttribute("name", name);
+        request.setAttribute("balance", balance);
         doGet(request, response);
     }
 

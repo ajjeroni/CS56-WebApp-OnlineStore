@@ -21,7 +21,11 @@ document.getElementById('root').innerHTML = product.map((item, i) => {
             <div class="bottom">
                 <p>${title}</p>
                 <h2>$${price.toFixed(2)}</h2>
-                <button onclick="addToCart(${i})">Add to Cart</button>
+                <form method = "POST" action="/product-servlet">
+                    <input type="hidden" name="title" value="${title}">
+                    <input type="hidden" name="price" value="${price.toFixed(2)}">
+                    <button type="submit">Add to Cart</button>
+                </form>
             </div>
         </div>
     `;
@@ -86,7 +90,11 @@ function renderProducts(productsToRender) {
                 <div class="bottom">
                     <p>${title}</p>
                     <h2>$${price.toFixed(2)}</h2>
-                    <button onclick="addToCart(${i})">Add to Cart</button>
+                    <form method = "POST" action="/product-servlet">
+                        <input type="hidden" name="title" value="${title}">
+                        <input type="hidden" name="price" value="${price.toFixed(2)}">
+                        <button type="submit">Add to Cart</button>
+                </form>
                 </div>
             </div>
         `;

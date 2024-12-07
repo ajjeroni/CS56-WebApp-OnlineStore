@@ -12,7 +12,7 @@
 <div class="header">
   <div class="botheader">
     <p id="name">Welcome, ${name}</p>
-    <p id="balance">Balance: $0.00</p>
+    <p id="balance">Balance: $${balance}</p>
   </div>
   <div class="navbar">
     <p>The Bake Shop</p>
@@ -55,22 +55,21 @@
 <script>
   const checkoutButton = document.getElementById('checkoutButton');
   const balanceElement = document.getElementById('balance');
-  const balance = parseFloat(localStorage.getItem('balance')) || 0;
-  balanceElement.textContent=`Balance: $${balance.toFixed(2)}`;
+  <%--const balance = parseFloat(localStorage.getItem('balance')) || 0;--%>
+  <%--balanceElement.textContent=`Balance: $${balance.toFixed(2)}`;--%>
 
   const cartTotal = parseFloat(localStorage.getItem('cartTotal')) || 0;
   document.getElementById('total').textContent=`$${cartTotal.toFixed(2)}`;
 
   checkoutButton.addEventListener('click', () => {
-    if (balance < cartTotal) {
-      alert('Not enough money.');
-    } else {
-      const newBalance = balance - cartTotal;
-      localStorage.setItem('balance', newBalance.toFixed(2));
+    <%--if (${balance} < cartTotal) {--%>
+    <%--  alert('Not enough money.');--%>
+    <%--} else {--%>
+    <%--  const newBalance = balance - cartTotal;--%>
+    <%--  localStorage.setItem('balance', newBalance.toFixed(2));--%>
 
       window.location.href='checkout.html';
-    }
-  })
+    })
 </script>
 
 <div class="container">
@@ -80,7 +79,7 @@
     <div id="cartItem">Your cart is empty</div>
     <div class="foot">
       <h3>Total</h3>
-      <h2 id="total">$ 0.00 </h2>
+      <h2 id="total" >$${cartPrice}</h2>
     </div>
     <div class="checkout">
       <a href="HTML/checkOut.html">

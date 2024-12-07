@@ -6,7 +6,7 @@ public class Customer {
 
     public Customer(String name) {
         this.name = name;
-        this.balance = 0;
+        this.balance = 10.00;
     }
 
     public void setName(String name) {
