@@ -27,12 +27,19 @@ public class productServlet extends HttpServlet {
 
         int count = cart.showCart().size();
         getServletContext().setAttribute("count", count);
+        System.out.println("Cart Price: " + cart.totalSum());
 
         Double cartPrice = cart.totalSum();
         getServletContext().setAttribute("cartPrice", cartPrice);
+        Double balance = (Double) session.getAttribute("balance");
+        request.setAttribute("balance", balance);
+
+        session.setAttribute("sessionCartPrice", cartPrice);
+
         doGet(request, response);
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         getServletContext().getRequestDispatcher("/shop.jsp").forward(request, response);
     }
 }
